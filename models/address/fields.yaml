@@ -1,0 +1,36 @@
+fields:
+
+    alias:
+        label: Alias
+        placeholder: Home
+        required: true
+
+    first_name:
+        label: First name
+        span: left
+        required: true
+    last_name:
+        label: Last name
+        span: right
+        required: true
+
+    company:
+        label: Company
+
+    line1:
+        label: Address line 1
+        required: true
+    line2:
+        label: Address line 2
+    town:
+        label: Town
+        required: true
+    region:
+        label: Region / State
+        required: true
+    postcode:
+        label: Zip / Postal code
+        required: true
+    country:
+        label: Country
+        required: true

@@ -1,0 +1,10 @@
+addresses:
+    label: Address
+    view:
+        list: $/octoshop/addressbook/models/address/columns.yaml
+        toolbarButtons: create|add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/octoshop/addressbook/models/address/columns.yaml
+        form: $/octoshop/addressbook/models/address/fields.yaml

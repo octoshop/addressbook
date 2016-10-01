@@ -1,0 +1,45 @@
+columns:
+
+    id:
+        label: ID
+        searchable: true
+
+    alias:
+        label: Alias
+        searchable: true
+
+    first_name:
+        label: First name
+        searchable: true
+        invisible: true
+    last_name:
+        label: last name
+        searchable: true
+        invisible: true
+
+    company:
+        label: Company
+        searchable: true
+
+    line1:
+        label: Address line 1
+        searchable: true
+    line2:
+        label: Address line 2
+        searchable: true
+        invisible: true
+    town:
+        label: Town
+        searchable: true
+        invisible: true
+    region:
+        label: Region / State
+        searchable: true
+        invisible: true
+    postcode:
+        label: Zip / Postal code
+        searchable: true
+    country:
+        label: Country
+        searchable: true
+        invisible: true
