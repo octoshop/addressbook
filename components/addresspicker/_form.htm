@@ -1,0 +1,45 @@
+{% if selected is not empty %}
+	<p>
+        <strong>{{ selected.first_name }} {{ selected.last_name }}</strong>
+        {% if selected.company %}<br>{{ selected.company }}{% endif %}
+    </p>
+
+	<p>
+		{{ selected.line1 }}<br>
+        {% if selected.line2 %}{{ selected.line2 }}{% endif %}<br>
+		{{ selected.town }}<br>
+		{{ selected.region }}<br>
+        {{ selected.postcode }}<br>
+		{{ selected.country }}
+	</p>
+{% else %}
+    <div class="row">
+        <div class="col-md-6 form-group">
+            {% partial '@form/input' label='First name' input_prefix=fieldName %}
+        </div>
+        <div class="col-md-6 form-group">
+            {% partial '@form/input' label='Last name' input_prefix=fieldName %}
+        </div>
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Company' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Address line 1' input_name='line1' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Address line 2' input_name='line2' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Town' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='County' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Postcode' input_prefix=fieldName %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Country' input_prefix=fieldName %}
+    </div>
+{% endif %}

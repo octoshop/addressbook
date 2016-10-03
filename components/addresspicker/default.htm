@@ -1,0 +1,19 @@
+<div class="form-group">
+    <select class="form-control input-lg" name="{{ fieldName }}"
+        data-request="{{ __SELF__~'::onChangeAddress' }}"
+        data-request-data="fieldName: '{{ fieldName }}'"
+        data-request-update="'{{  '@_form' }}' : '#{{ fieldName }}_outer'">
+        {% for address in available %}
+        <option {% if selected.alias == address.alias %}selected{% endif %}
+            value="{{ address.alias }}">
+            {{ address.alias }}
+        </option>
+        {% endfor %}
+        <option disabled>---</option>
+        <option{% if not selected %} selected{% endif %}>New address</option>
+    </select>
+</div>
+
+<div id="{{ fieldName~'_outer' }}">
+    {% partial '@_form' %}
+</div>

@@ -1,0 +1,10 @@
+{% set input_name = input_name ?: str_slug(label, '_') %}
+
+<label class="sr-only" for="{{ str_studly( input_prefix ~ label) }}">{{ label }}</label>
+<input name="{% if input_prefix %}{{ input_prefix }}_{% endif %}{{ input_name }}"
+       value="{{ form_value(input_name) }}"
+       placeholder="{{ label }}"
+       id="{{ str_studly( input_prefix ~ label) }}"
+       type="text"
+       class="form-control"
+/>

@@ -87,4 +87,15 @@ class Plugin extends PluginBase
             $model->hasMany['addresses'] = 'Octoshop\AddressBook\Models\Address';
         });
     }
+
+    /**
+     * Register components provided by this plugin
+     * @return array
+     */
+    public function registerComponents()
+    {
+        return [
+            'Octoshop\AddressBook\Components\AddressPicker' => 'addressPicker',
+        ];
+    }
 }
