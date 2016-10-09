@@ -1,13 +1,14 @@
-<?php namespace Feegleweb\Contacts\Updates;
+<?php namespace Octoshop\AddressBook\Updates;
 
 use Schema;
-use October\Rain\Database\Updates\Migration;
+use Octoshop\Core\Updates\Migration;
+use October\Rain\Database\Schema\Blueprint;
 
 class CreateAddressesTable extends Migration
 {
     public function up()
     {
-        Schema::create('octoshop_addresses', function($table) {
+        Schema::create('octoshop_addresses', function(Blueprint$table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->default(0);
