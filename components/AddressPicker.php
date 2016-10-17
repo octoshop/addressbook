@@ -1,6 +1,7 @@
 <?php namespace Octoshop\AddressBook\Components;
 
 use Auth;
+use Event;
 use Octoshop\AddressBook\Models\Address;
 use Octoshop\Core\Components\ComponentBase;
 
@@ -55,11 +56,13 @@ class AddressPicker extends ComponentBase
     {
         $this->prepareVars();
 
-        if ($alias = post(post('fieldName'))) {
+        if ($alias = post($field = post('fieldName'))) {
             $address = $this->address->whereAlias($alias)->first();
         }
 
         $this->setPageProp('selected', isset($address) ? $address : null);
+
+        Event::fire('octoshop.addressUpdated', [$field, $address]);
 
         return $this->page;
     }
