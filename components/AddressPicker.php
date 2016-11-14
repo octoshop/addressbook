@@ -11,7 +11,11 @@ class AddressPicker extends ComponentBase
 
     public function init()
     {
-        $this->address = Address::whereUserId(Auth::getUser()->id);
+        if (!$user = Auth::getUser()) {
+            return;
+        }
+
+        $this->address = Address::whereUserId($user->id);
     }
 
     public function componentDetails()
@@ -35,10 +39,12 @@ class AddressPicker extends ComponentBase
 
     public function prepareVars()
     {
-        $this->setPageProp('available', $this->address->get());
-
         $this->setPageProp('fieldName');
-        $this->setPageProp('selected', $this->address->first());
+
+        if ($this->address) {
+            $this->setPageProp('available', $this->address->get());
+            $this->setPageProp('selected', $this->address->first());
+        }
     }
 
     public function onRun()
@@ -63,7 +69,5 @@ class AddressPicker extends ComponentBase
         $this->setPageProp('selected', isset($address) ? $address : null);
 
         Event::fire('octoshop.addressUpdated', [$field, $address]);
-
-        return $this->page;
     }
 }
