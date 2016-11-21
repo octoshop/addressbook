@@ -62,7 +62,9 @@ class AddressPicker extends ComponentBase
     {
         $this->prepareVars();
 
-        if ($alias = post($field = post('fieldName'))) {
+        $field = post('fieldName');
+
+        if ($alias = post($field.'_address')) {
             $address = $this->address->whereAlias($alias)->first();
         }
 

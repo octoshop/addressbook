@@ -30,6 +30,9 @@ class Address extends Model
         'country',
     ];
 
+    /**
+     * @var array Relations
+     */
     public $belongsTo = [
         'user' => 'RainLab\User\Models\User',
     ];
@@ -46,5 +49,32 @@ class Address extends Model
         }
 
         return true;
+    }
+
+    /**
+     * Get the validation rules with a prefix applied
+     * @param string $prefix
+     * @return array
+     */
+    public static function getValidationRules($prefix)
+    {
+        $rules = [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'company' => '',
+            'line1' => 'required',
+            'line2' => '',
+            'town' => 'required',
+            'region' => 'required',
+            'postcode' => 'required',
+            'country' => 'required',
+        ];
+
+        foreach (array_keys($rules) as $field) {
+            $rules[$prefix.'_'.$field] = $rules[$field];
+            unset($rules[$field]);
+        }
+
+        return $rules;
     }
 }

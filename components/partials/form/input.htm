@@ -1,10 +1,14 @@
 {% set input_name = input_name ?: str_slug(label, '_') %}
+{% if input_prefix %}
+{% set input_name = input_prefix ~ '_' ~ input_name %}
+{% endif %}
 
-<label class="sr-only" for="{{ str_studly( input_prefix ~ label) }}">{{ label }}</label>
-<input name="{% if input_prefix %}{{ input_prefix }}_{% endif %}{{ input_name }}"
+<label class="sr-only" for="{{ input_name }}">{{ label }}</label>
+<input name="{{ input_name }}"
        value="{{ form_value(input_name) }}"
        placeholder="{{ label }}"
-       id="{{ str_studly( input_prefix ~ label) }}"
+       id="{{ str_studly(input_name) }}"
        type="text"
        class="form-control"
 />
+<span class="text-danger" data-validate-for="{{ input_name }}"></span>
