@@ -89,6 +89,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
+            'Octoshop\AddressBook\Components\AddressBook' => 'addressBook',
             'Octoshop\AddressBook\Components\AddressPicker' => 'addressPicker',
         ];
     }

@@ -6,6 +6,10 @@ return [
         'description' => 'Extends the User plugin to provide a convenient way of managing customer addresses.',
     ],
     'components' => [
+        'book' => [
+            'name' => 'Address Book',
+            'description' => 'Present a list of addresses for editing.',
+        ],
         'picker' => [
             'name' => 'Address picker',
             'description' => 'Shows the current address with an option to switch it or add a new one.',
@@ -25,5 +29,8 @@ return [
         'region' => 'County',
         'postcode' => 'Post code',
         'country' => 'Country',
+    ],
+    'error' => [
+        'not_logged_in' => 'Failed to fetch addresses. User not logged in.',
     ],
 ];

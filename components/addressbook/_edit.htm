@@ -1,0 +1,68 @@
+{% if address %}
+
+<h2>Editing address '{{ address.alias }}'</h2>
+
+{{ form_ajax(__SELF__~'::onUpdate', {
+    model: address,
+    data: {id: address.id}
+}) }}
+
+{% else %}
+
+<h2>New Address</h2>
+
+{{ form_ajax(__SELF__~'::onCreate') }}
+
+    <div class="form-group">
+        {% partial '@form/input'
+            input_name='alias'
+            placeholder='Home'
+            label='Your reference:'
+            showLabel=1
+        %}
+    </div>
+
+{% endif %}
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            {% partial '@form/input' label='First name' %}
+        </div>
+        <div class="col-md-6 form-group">
+            {% partial '@form/input' label='Last name' %}
+        </div>
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Company' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Address line 1' input_name='line1' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Address line 2' input_name='line2' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Town' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='County' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Postcode' %}
+    </div>
+    <div class="form-group">
+        {% partial '@form/input' label='Country' %}
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="button"
+        data-request="{{__SELF__}}::onDelete"
+        data-request-confirm="Are you sure you want to delete this address?"
+        data-request-data="id: {{ address.id }}"
+        data-request-success="location.reload(true)"
+        class="btn btn-danger pull-right">
+        <i class="glyphicon glyphicon-trash"></i>
+    </button>
+</form>

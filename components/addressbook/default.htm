@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-6">
+        <button class="btn btn-primary pull-right"
+            data-request="{{__SELF__}}::onLoadEditor"
+            data-request-update="'{{ __SELF__~'::_edit' }}' : '#addressEditor'"
+            data-request-success="$('#FirstName').focus();"
+        >
+            Add new address
+        </button>
+        <div class="clearfix"></div>
+        <hr>
+
+        {% if addresses is empty %}
+        <p>You don't have any addresses stored yet!</p>
+        {% else %}
+
+        {% for address in addresses %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button class="btn btn-xs btn-default pull-right"
+                    data-request="{{__SELF__}}::onLoadEditor"
+                    data-request-data="id: {{ address.id }}"
+                    data-request-update="'{{ __SELF__~'::_edit' }}' : '#addressEditor'"
+                    data-request-success="$('#FirstName').focus();"
+                >
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    Edit
+                </button>
+                <h3 class="panel-title">{{ address.alias }}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-5 col-sm-3 col-md-5">
+                        <h4>
+                            {{ address.first_name ~' '~ address.last_name }}
+                            {% if address.company %}
+                            <br><small>{{ address.company }}</small>
+                            {% endif %}
+                        </h4>
+                    </div>
+                    <div class="col-xs-7 col-sm-9 col-md-7">
+                        {% partial __SELF__~'::_preview' address=address %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+    </div>
+
+    <div class="col-md-6" id="addressEditor"></div>
+</div>

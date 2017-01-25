@@ -3,10 +3,10 @@
 {% set input_name = input_prefix ~ '_' ~ input_name %}
 {% endif %}
 
-<label class="sr-only" for="{{ input_name }}">{{ label }}</label>
+<label class="{{ showLabel ? '' : 'sr-only' }}" for="{{ input_name }}">{{ label }}</label>
 <input name="{{ input_name }}"
        value="{{ form_value(input_name) }}"
-       placeholder="{{ label }}"
+       placeholder="{{ placeholder ?: label }}"
        id="{{ str_studly(input_name) }}"
        type="text"
        class="form-control"
