@@ -37,47 +37,41 @@ class Plugin extends PluginBase
     public function extendBackendForms()
     {
         Event::listen('backend.form.extendFields', function($form) {
-            if (!$form->getController() instanceof Users
-             || !$form->model instanceof User) {
-                return;
+            if ($form->getController() instanceof Users && $form->model instanceof User) {
+                $form->addTabFields([
+                    'addresses' => [
+                        'tab' => 'Address Book',
+                        'type' => 'partial',
+                        'path' => '$/octoshop/addressbook/controllers/users/_field_addresses.htm',
+                    ],
+                ], FormTabs::SECTION_SECONDARY);
             }
-
-            $form->addTabFields([
-                'addresses' => [
-                    'tab' => 'Address Book',
-                    'type' => 'partial',
-                    'path' => '$/octoshop/addressbook/controllers/users/_field_addresses.htm',
-                ],
-            ], FormTabs::SECTION_SECONDARY);
         });
     }
 
     public function extendBackendLists()
     {
         Event::listen('backend.list.extendColumns', function($list) {
-            if (!($list->getController() instanceof Users)
-             || !($list->model instanceof User)) {
-                return;
+            if ($list->getController() instanceof Users && $list->model instanceof User) {
+                $list->addColumns([
+                    'addresses' => [
+                        'label'    => 'Addresses',
+                        'relation' => 'addresses',
+                        'select'   => 'alias',
+                        'searchable' => true,
+                        'sortable'   => false,
+                        'invisible'  => true,
+                    ],
+                ]);
             }
-
-            $list->addColumns([
-                'addresses' => [
-                    'label'    => 'Addresses',
-                    'relation' => 'addresses',
-                    'select'   => 'alias',
-                    'searchable' => true,
-                    'sortable'   => false,
-                    'invisible'  => true,
-                ],
-            ]);
         });
     }
 
     public function extendControllers()
     {
         Users::extend(function($controller) {
-            $controller->addDynamicProperty('relationConfig', '$/octoshop/addressbook/controllers/users/config_relation.yaml');
-            $controller->implement[] = 'Backend.Behaviors.RelationController';
+            $controller->relationConfig = '$/octoshop/addressbook/controllers/users/config_relation.yaml';
+            $controller->extendClassWith('Backend\Behaviors\RelationController');
         });
     }
 

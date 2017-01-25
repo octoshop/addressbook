@@ -1,1 +1,1 @@
-<?= $this->relationRender('addresses') ?>
+<?= $this->relationRender('addresses', ['readOnly' => $this->formGetContext() == 'preview']) ?>
