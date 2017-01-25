@@ -1,36 +1,36 @@
 fields:
 
     alias:
-        label: Alias
+        label: octoshop.addressbook::lang.address.alias
         placeholder: Home
         required: true
 
     first_name:
-        label: First name
+        label: octoshop.addressbook::lang.address.first_name
         span: left
         required: true
     last_name:
-        label: Last name
+        label: octoshop.addressbook::lang.address.last_name
         span: right
         required: true
 
     company:
-        label: Company
+        label: octoshop.addressbook::lang.address.company
 
     line1:
-        label: Address line 1
+        label: octoshop.addressbook::lang.address.line1
         required: true
     line2:
-        label: Address line 2
+        label: octoshop.addressbook::lang.address.line2
     town:
-        label: Town
+        label: octoshop.addressbook::lang.address.town
         required: true
     region:
-        label: Region / State
+        label: octoshop.addressbook::lang.address.region
         required: true
     postcode:
-        label: Zip / Postal code
+        label: octoshop.addressbook::lang.address.postcode
         required: true
     country:
-        label: Country
+        label: octoshop.addressbook::lang.address.country
         required: true

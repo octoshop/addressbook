@@ -2,7 +2,28 @@
 
 return [
     'plugin' => [
-        'name' => 'Octoshop AddressBook',
+        'name' => 'Address Book',
         'description' => 'Extends the User plugin to provide a convenient way of managing customer addresses.',
+    ],
+    'components' => [
+        'picker' => [
+            'name' => 'Address picker',
+            'description' => 'Shows the current address with an option to switch it or add a new one.',
+            'fieldName' => 'Identifier',
+            'fieldName_description' => 'Unique identifier to prepend to address form fields.',
+        ],
+    ],
+    'address' => [
+        'id' => 'ID',
+        'alias' => 'Alias',
+        'first_name' => 'First name',
+        'last_name' => 'Last name',
+        'company' => 'Company',
+        'line1' => 'Address line 1',
+        'line2' => 'Address line 2',
+        'town' => 'Town',
+        'region' => 'County',
+        'postcode' => 'Post code',
+        'country' => 'Country',
     ],
 ];

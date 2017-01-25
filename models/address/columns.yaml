@@ -1,45 +1,45 @@
 columns:
 
     id:
-        label: ID
+        label: octoshop.addressbook::lang.address.id
         searchable: true
 
     alias:
-        label: Alias
+        label: octoshop.addressbook::lang.address.alias
         searchable: true
 
     first_name:
-        label: First name
+        label: octoshop.addressbook::lang.address.first_name
         searchable: true
         invisible: true
     last_name:
-        label: last name
+        label: octoshop.addressbook::lang.address.last_name
         searchable: true
         invisible: true
 
     company:
-        label: Company
+        label: octoshop.addressbook::lang.address.company
         searchable: true
 
     line1:
-        label: Address line 1
+        label: octoshop.addressbook::lang.address.line1
         searchable: true
     line2:
-        label: Address line 2
+        label: octoshop.addressbook::lang.address.line2
         searchable: true
         invisible: true
     town:
-        label: Town
+        label: octoshop.addressbook::lang.address.town
         searchable: true
         invisible: true
     region:
-        label: Region / State
+        label: octoshop.addressbook::lang.address.region
         searchable: true
         invisible: true
     postcode:
-        label: Zip / Postal code
+        label: octoshop.addressbook::lang.address.postcode
         searchable: true
     country:
-        label: Country
+        label: octoshop.addressbook::lang.address.country
         searchable: true
         invisible: true

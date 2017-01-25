@@ -2,6 +2,7 @@
 
 use Auth;
 use Event;
+use Lang;
 use Octoshop\AddressBook\Models\Address;
 use Octoshop\Core\Components\ComponentBase;
 
@@ -21,8 +22,8 @@ class AddressPicker extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => "Address picker",
-            'description' => "Shows the current address with an option to switch it or add a new one.",
+            'name'        => Lang::get('octoshop.addressbook::lang.components.picker.name'),
+            'description' => Lang::get('octoshop.addressbook::lang.components.picker.description'),
         ];
     }
 
@@ -30,8 +31,8 @@ class AddressPicker extends ComponentBase
     {
         return [
             'fieldName' => [
-                'title'       => 'Identifier',
-                'description' => 'Unique identifier to prepend to address form fields.',
+                'title'       => Lang::get('octoshop.addressbook::lang.components.picker.fieldName'),
+                'description' => Lang::get('octoshop.addressbook::lang.components.picker.fieldName_description'),
                 'default'     => 'address',
             ],
         ];
