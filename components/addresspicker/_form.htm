@@ -7,10 +7,10 @@
     <p>
         {{ selected.line1 }}<br>
         {% if selected.line2 %}{{ selected.line2 }}{% endif %}<br>
-        {{ selected.town }}<br>
-        {{ selected.region }}<br>
-        {{ selected.postcode }}<br>
-        {{ selected.country }}
+        {% if selected.town %}{{ selected.town }}{% endif %}<br>
+        {% if selected.region %}{{ selected.region }}{% endif %}<br>
+        {% if selected.postcode %}{{ selected.postcode }}{% endif %}<br>
+        {% if selected.country %}{{ selected.country }}{% endif %}
     </p>
 {% else %}
     <div class="row">
