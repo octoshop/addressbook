@@ -1,5 +1,5 @@
 addresses:
-    label: Address
+    label: octoshop.addressbook::lang.user.address
     view:
         list: $/octoshop/addressbook/models/address/columns.yaml
         toolbarButtons: create|add|remove

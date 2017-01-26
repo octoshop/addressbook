@@ -7,7 +7,7 @@ return [
     ],
     'components' => [
         'book' => [
-            'name' => 'Address Book',
+            'name' => 'Address book',
             'description' => 'Present a list of addresses for editing.',
         ],
         'picker' => [
@@ -30,7 +30,12 @@ return [
         'postcode' => 'Post code',
         'country' => 'Country',
     ],
+    'user' => [
+        'address' => 'Address',
+        'addresses' => 'Addresses',
+    ],
     'error' => [
+        'forbidden' => 'User does not have permission to update address',
         'not_logged_in' => 'Failed to fetch addresses. User not logged in.',
     ],
 ];

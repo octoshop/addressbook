@@ -40,7 +40,7 @@ class Plugin extends PluginBase
             if ($form->getController() instanceof Users && $form->model instanceof User) {
                 $form->addTabFields([
                     'addresses' => [
-                        'tab' => 'Address Book',
+                        'tab' => 'octoshop.addressbook::lang.plugin.name',
                         'type' => 'partial',
                         'path' => '$/octoshop/addressbook/controllers/users/_field_addresses.htm',
                     ],
@@ -55,7 +55,7 @@ class Plugin extends PluginBase
             if ($list->getController() instanceof Users && $list->model instanceof User) {
                 $list->addColumns([
                     'addresses' => [
-                        'label'    => 'Addresses',
+                        'label'    => 'octoshop.addressbook::lang.user.addresses',
                         'relation' => 'addresses',
                         'select'   => 'alias',
                         'searchable' => true,

@@ -1,6 +1,7 @@
 <?php namespace Octoshop\AddressBook\Models;
 
 use Exception;
+use Lang;
 use Model;
 
 class Address extends Model
@@ -45,7 +46,7 @@ class Address extends Model
     public function ensureOwnerIs($userId)
     {
         if ($this->user->id !== $userId) {
-            throw new Exception("User does not have permission to update address");
+            throw new Exception(Lang::get('octoshop.addressbook::lang.error.forbidden'));
         }
 
         return true;
