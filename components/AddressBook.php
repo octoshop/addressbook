@@ -4,8 +4,8 @@ use Auth;
 use Exception;
 use Lang;
 use Cms\Classes\CodeBase;
+use Cms\Classes\ComponentBase;
 use Octoshop\AddressBook\Models\Address;
-use Octoshop\Core\Components\ComponentBase;
 use October\Rain\Exception\ApplicationException;
 
 class AddressBook extends ComponentBase
@@ -29,7 +29,7 @@ class AddressBook extends ComponentBase
 
     public function onRun()
     {
-        $this->setPageProp('addresses', $this->user->addresses);
+        $this->addresses = $this->page['addresses'] = $this->user->addresses;
     }
 
     public function onLoadEditor()

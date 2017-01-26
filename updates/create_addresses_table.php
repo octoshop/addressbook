@@ -1,8 +1,8 @@
 <?php namespace Octoshop\AddressBook\Updates;
 
 use Schema;
-use Octoshop\Core\Updates\Migration;
 use October\Rain\Database\Schema\Blueprint;
+use October\Rain\Database\Updates\Migration;
 
 class CreateAddressesTable extends Migration
 {
