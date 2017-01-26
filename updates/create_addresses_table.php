@@ -8,7 +8,7 @@ class CreateAddressesTable extends Migration
 {
     public function up()
     {
-        Schema::create('octoshop_addresses', function(Blueprint$table) {
+        Schema::create('octoshop_addresses', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('user_id')->unsigned()->default(0);

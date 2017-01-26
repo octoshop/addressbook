@@ -10,13 +10,13 @@ class AddressPicker extends ComponentBase
 {
     protected $address;
 
+    protected $user;
+
     public function init()
     {
-        if (!$user = Auth::getUser()) {
+        if (!$this->user = Auth::getUser()) {
             return;
         }
-
-        $this->address = Address::whereUserId($user->id);
     }
 
     public function componentDetails()
@@ -42,15 +42,14 @@ class AddressPicker extends ComponentBase
     {
         $this->setPageProp('fieldName');
 
-        if ($this->address) {
-            $this->setPageProp('available', $this->address->get());
-            $this->setPageProp('selected', $this->address->first());
+        if ($this->user->addresses) {
+            $this->setPageProp('available', $this->user->addresses);
+            $this->setPageProp('selected', $this->user->addresses()->first());
         }
     }
 
     public function onRun()
     {
-
         $this->prepareVars();
     }
 
@@ -66,7 +65,7 @@ class AddressPicker extends ComponentBase
         $field = post('fieldName');
 
         if ($alias = post($field.'_address')) {
-            $address = $this->address->whereAlias($alias)->first();
+            $address = $this->user->addresses()->whereAlias($alias)->first();
         }
 
         $this->setPageProp('selected', isset($address) ? $address : null);
